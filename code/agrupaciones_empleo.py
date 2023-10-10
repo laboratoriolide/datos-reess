@@ -8,6 +8,14 @@
 # Importación de librerías
 
 import polars as pl
+import pandas as pd
+
+# Cargar diccionarios de variables:
+
+# Diccionario de codigos CIIU (codigos de industria)
+
+ciiu = pl.read_excel("metadata/diccionario/3_2023_CIIU.xlsx")
+
 
 # Cargar datos y agrupar por año, mes y provincia----------------------------------------------------------------------
 
@@ -118,6 +126,10 @@ reess_agrupado = pl.concat(lista_reess_agrupado)
 empleo_provincia = reess_agrupado.collect()
 
 empleo_provincia_pd = empleo_provincia.to_pandas()
+
+# Agrupacion por CIIU ---------------------------------------------------------------------
+
+# Tomar los datos más recientes y agrupar por CIIU
 
 # Análisis exploratorio de datos ---------------------------------------------------------------------------------------------
 
