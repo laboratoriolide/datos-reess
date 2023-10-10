@@ -1,0 +1,91 @@
+;
+;
+;Tabulados: Plazas de empleo registrado en la seguridad social (IESS)
+;Instituto Nacional de Estadística y Censos (INEC)
+;
+Cuadro.N°;Contenido
+Definiciones;Definiciones
+PLAZAS DE EMPLEO REGISTRADO POR CARACTERÍSTICAS OCUPACIONALES Y DEL EMPLEADOR;PLAZAS DE EMPLEO REGISTRADO POR CARACTERÍSTICAS OCUPACIONALES Y DEL EMPLEADOR
+1_1_1;Características ocupacionales y del empleador - Total - por Rama de Actividad Económica CIIU 4 a nivel 1 (Sección)
+1_1_2;Características ocupacionales y del empleador - Total - por Rama de Actividad Económica CIIU 4 a nivel 2 (División)
+1_1_3;Características ocupacionales y del empleador - Total - por Rama de Actividad Económica CIIU 4 a nivel 3 (Grupo)
+1_1_4;Características ocupacionales y del empleador - Total - por Rama de Actividad Económica CIIU 4 a nivel 4 (Clase)
+1_1_5;Características ocupacionales y del empleador - Total - por Sector de afiliación
+1_1_6;Características ocupacionales y del empleador - Total - por Tamaño de Empresa
+1_1_7;Características ocupacionales y del empleador - Total - por Condición de Trabajo
+1_1_8;Características ocupacionales y del empleador - Total - por Provincia
+1_2_1;Características ocupacionales y del empleador - Sector Privado - por Rama de Actividad Económica CIIU 4 a nivel 1 (Sección)
+1_2_2;Características ocupacionales y del empleador - Sector Privado - por Rama de Actividad Económica CIIU 4 a nivel 4 (Clase)
+1_2_3;Características ocupacionales y del empleador - Sector Privado - por Tamaño de Empresa
+1_2_4;Características ocupacionales y del empleador - Sector Privado - por Condición de Trabajo
+1_3_1;Características ocupacionales y del empleador - Sector Público - por Rama de Actividad Económica CIIU 4 a nivel 1 (Sección)
+1_3_2;Características ocupacionales y del empleador - Sector Público - por Rama de Actividad Económica CIIU 4 a nivel 4 (Clase)
+1_3_3;Características ocupacionales y del empleador - Sector Público - por Tamaño de Empresa
+PLAZAS DE EMPLEO REGISTRADO POR CARACTERÍSTICAS SOCIODEMOGRÁFICAS;PLAZAS DE EMPLEO REGISTRADO POR CARACTERÍSTICAS SOCIODEMOGRÁFICAS
+2_0_1;Características Socio-demográficas - Total - por Sexo
+2_0_2;Características Socio-demográficas - Total - por Grupo de Edad
+2_0_3;Características Socio-demográficas - Total - por Grupo de Edad - 18 a 29 años
+2_0_4;Características Socio-demográficas - Total - por Provincia
+2_1_1;Características Socio-demográficas - Sector Privado - por Sexo
+2_1_2;Características Socio-demográficas - Sector Privado - por Grupo de Edad
+2_1_3;Características Socio-demográficas - Sector Privado - por Grupo de Edad - 18 a 29 años
+2_1_4;Características Socio-demográficas - Sector Privado - por Provincia
+2_2_1;Características Socio-demográficas - Sector Público - por Sexo
+2_2_2;Características Socio-demográficas - Sector Público - por Grupo de Edad
+2_2_3;Características Socio-demográficas - Sector Público - por Grupo de Edad - 18 a 29 años
+2_2_4;Características Socio-demográficas - Sector Público - por Provincia
+2_3_1;Características Socio-demográficas - Empleo Doméstico - por Sexo
+2_3_2;Características Socio-demográficas - Empleo Doméstico - por Grupo de Edad
+2_3_3;Características Socio-demográficas - Empleo Doméstico - por Grupo de Edad - 18 a 29 años
+2_4_1;Características Socio-demográficas - Empleo del Seguro Social Campesino - por Sexo
+2_4_2;Características Socio-demográficas - Empleo del Seguro Social Campesino - por Grupo de Edad
+2_4_3;Características Socio-demográficas - Empleo del Seguro Social Campesino - por Grupo de Edad - 18 a 29 años
+PLAZAS DE EMPLEO REGISTRADO POR CARACTERÍSTICAS SOCIODEMOGRÁFICAS, OCUPACIONALES Y DEL EMPLEADOR;PLAZAS DE EMPLEO REGISTRADO POR CARACTERÍSTICAS SOCIODEMOGRÁFICAS, OCUPACIONALES Y DEL EMPLEADOR
+3_1_1;Características Socio-demográficas, Ocupacionales y del Empleador - Sexo - por Rama de Actividad Económica CIIU 4 a nivel 1 (Sección)
+3_1_2;Características Socio-demográficas, Ocupacionales y del Empleador - Sexo - por Rama de Actividad Económica CIIU 4 a nivel 4 (Clase)
+3_1_3;Características Socio-demográficas, Ocupacionales y del Empleador - Sexo - por Condición de Trabajo
+3_1_4;Características Socio-demográficas, Ocupacionales y del Empleador - Sexo - por Grupo de Edad
+3_1_5;Características Socio-demográficas, Ocupacionales y del Empleador - Sexo - por Grupo de Edad - 18 a 29 años
+3_1_6;Características Socio-demográficas, Ocupacionales y del Empleador - Sector de afiliación - Sexo - por Grupo de Edad
+3_1_7;Características Socio-demográficas, Ocupacionales y del Empleador - Sector de afiliación- Sexo - por Grupo de Edad - 18 a 29 años
+3_2_1;Características Socio-demográficas, Ocupacionales y del Empleador - Grupo de Edad - por Rama de Actividad Económica CIIU 4 a nivel 1 (Sección)
+3_2_2;Características Socio-demográficas, Ocupacionales y del Empleador - Grupo de Edad - por Rama de Actividad Económica CIIU 4 a nivel 4 (Clase)
+3_2_3;Características Socio-demográficas, Ocupacionales y del Empleador - Grupo de Edad - por Condición de Trabajo
+3_3_1;Características Socio-demográficas, Ocupacionales y del Empleador - Grupo de Edad - 18 a  29 años  - por Rama de Actividad Económica CIIU 4 a nivel 1 (Sección)
+3_3_2;Características Socio-demográficas, Ocupacionales y del Empleador - Grupo de Edad - 18 a  29 años  - por Rama de Actividad Económica CIIU 4 a nivel 4 (Clase)
+3_3_3;Características Socio-demográficas, Ocupacionales y del Empleador - Grupo de Edad - 18 a  29 años  - por Condición de Trabajo
+SALARIO PROMEDIO DE LAS PLAZAS DE EMPLEO REGISTRADO;SALARIO PROMEDIO DE LAS PLAZAS DE EMPLEO REGISTRADO
+4_1_1;Características Socio-Demográficas - por Sexo
+4_1_2;Características Socio-Demográficas - por Grupo de Edad
+4_1_3;Características Socio-Demográficas - por Grupo de Edad - 18 a 29 años
+4_2_1;Características Ocupacionales y del Empleador - por Rama de Actividad Económica CIIU 4 a nivel 1 (Sección)
+4_2_2;Características Ocupacionales y del Empleador - por Rama de Actividad Económica CIIU 4 a nivel 4 (Clase)
+4_2_3;Características Ocupacionales y del Empleador - por Sector de afiliación
+4_2_4;Características Ocupacionales y del Empleador - por Condición de Trabajo
+4_2_5;Características Ocupacionales y del Empleador - por Tamaño de Empresa
+4_3_1;Otros - Sector - por Sexo
+4_3_2;Otros - Sector - por Grupo de Edad
+4_3_3;Otros - Sector - por Grupo de Edad- 18 a 29 años
+MASA SALARIAL DE LAS PLAZAS DE EMPLEO REGISTRADO;MASA SALARIAL DE LAS PLAZAS DE EMPLEO REGISTRADO
+5_1_1;Características Ocupacionales y del Empleador - por Rama de Actividad Económica CIIU 4 a nivel 1 (Sección)
+5_1_2;Características Ocupacionales y del Empleador - por Rama de Actividad Económica CIIU 4 a nivel 4 (Clase)
+5_1_3;Características Ocupacionales y del Empleador - por Sector de afiliación
+5_1_4;Características Ocupacionales y del Empleador - por Condición de Trabajo
+ACTIVIDAD DE LA EMPRESA;
+6_1_1;Agregaciones Adicionales - Actividad de la empresa - por Rama de Actividad Económica CIIU 4 a nivel 1 (Sección)
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
