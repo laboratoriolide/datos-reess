@@ -7,15 +7,18 @@
 
 # Importación de librerías
 
-import polars as pl
 import pandas as pd
+import polars as pl
+import os
 
 # Cargar diccionarios de variables:
 
 # Diccionario de codigos CIIU (codigos de industria)
 
-ciiu = pl.read_excel("metadata/diccionario/3_2023_CIIU.xlsx")
-
+ciiu_nivel_1 = pd.read_excel("metadata/diccionario/REESS_Diccionario_Variables.xlsx",
+                             sheet_name= 'CIIU1_D',
+                             skiprows= 3,
+                             names = ['codigo', 'descripcion'])
 
 # Cargar datos y agrupar por año, mes y provincia----------------------------------------------------------------------
 
@@ -127,9 +130,70 @@ empleo_provincia = reess_agrupado.collect()
 
 empleo_provincia_pd = empleo_provincia.to_pandas()
 
-# Agrupacion por CIIU ---------------------------------------------------------------------
+# Agrupacion por CIIU del periodo mas reciente ---------------------------------------------------------------------
 
-# Tomar los datos más recientes y agrupar por CIIU
+# Listar los nombres de todos los archivos en el directorio de datos
+
+archivos_reess = os.listdir('data')
+
+# Eliminar la primera parte de los nombres de los archivos
+
+archivos_reess_anio = [s.replace("BDD_REESS_", "") for s in archivos_reess]
+
+# Extraer los primeros cuatro caracteres de cada nombre de archivo
+
+anios = [int(s[:4]) for s in archivos_reess_anio]
+
+# Seleccionar el maximo
+
+anio_mas_reciente = max(anios)
+
+# Seleccionar solo los nombres de los archivos del año mas reciente
+
+archivos_reess_ultimo_anio = [s for s in archivos_reess if str(anio_mas_reciente) in s]
+
+# Eliminar todo menos los meses
+
+archivos_reess_ultimo_anio_mes = [s.replace("BDD_REESS_" + str(anio_mas_reciente) + "_", "") for s in archivos_reess_ultimo_anio]
+
+# Eliminar la terminacion .csv de los nombres de los archivos
+
+archivos_reess_ultimo_anio_mes = [s.replace(".csv", "") for s in archivos_reess_ultimo_anio_mes]
+
+# Transformar a entero
+
+archivos_reess_ultimo_anio_mes = [int(s) for s in archivos_reess_ultimo_anio_mes]
+
+# Seleccionar el mes mas reciente
+
+mes_mas_reciente = max(archivos_reess_ultimo_anio_mes)
+
+# Crear el nombre del archivo del mes-año mas reciente
+
+archivo_reess_ultimo_anio_mes = "BDD_REESS_" + str(anio_mas_reciente) + "_" + str(mes_mas_reciente) + ".csv"
+
+# Cargar el archivo del mes-año mas reciente
+
+reess_ultimo_anio_mes = (pl.scan_csv("data/" + archivo_reess_ultimo_anio_mes, 
+                                     infer_schema_length = 100000000))
+
+# Lista de CIIUs validos
+
+ciiu_validos = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U']
+
+# Agrupar por CIIU 
+
+empleo_ciiu = (reess_ultimo_anio_mes
+                .filter(pl.col("ciiu4_1").is_in(ciiu_validos))
+                .group_by(['ciiu4_1'])
+                .count()
+                .sort(['count'], descending=True))
+
+empleo_ciiu_pd = empleo_ciiu.collect().to_pandas()
+
+# Juntar a la base de ciius para obtener la descripcion
+
+empleo_ciiu_pd_merged = pd.merge(empleo_ciiu_pd, ciiu_nivel_1, left_on='ciiu4_1', right_on='codigo', how='left')
 
 # Análisis exploratorio de datos ---------------------------------------------------------------------------------------------
 
