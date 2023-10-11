@@ -205,10 +205,6 @@ empleo_ciiu_con_descripcion = empleo_ciiu_pd_merged[['ciiu4_1', 'descripcion', '
 
 empleo_ciiu_con_descripcion.to_csv('output/empleo_ciiu_1.csv', index=False)
 
-# Extraer los 5 CIIUs mas grandes del mes-año mas reciente
-
-top_5_ciiu_1 = empleo_ciiu_pd_merged.head(5)['ciiu4_1'].tolist()
-
 # Análisis exploratorio de datos ---------------------------------------------------------------------------------------------
 
 # Confirmar cantidad de provincias
