@@ -42,7 +42,7 @@ reess_2010 = (pl.scan_csv("data/BDD_REESS_2010_*.csv", infer_schema_length = 100
 
 reess_2011 = (pl.scan_csv("data/BDD_REESS_2011_*.csv", infer_schema_length = 100000000)
                 .filter(pl.col("provincia").is_in(provinces))
-                .groupby(['ano', 'mes', 'provincia'])
+                .group_by(['ano', 'mes', 'provincia'])
                 .count()
                 .sort(['provincia', 'ano', 'mes']))
 
@@ -186,14 +186,28 @@ ciiu_validos = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'M', 'N',
 empleo_ciiu = (reess_ultimo_anio_mes
                 .filter(pl.col("ciiu4_1").is_in(ciiu_validos))
                 .group_by(['ciiu4_1'])
-                .count()
-                .sort(['count'], descending=True))
+                .agg(pl.count().alias('empleos'))
+                .with_columns((pl.col('empleos')/pl.sum('empleos')).alias('porcentaje'))
+                .sort(['empleos'], descending=True))
 
 empleo_ciiu_pd = empleo_ciiu.collect().to_pandas()
 
 # Juntar a la base de ciius para obtener la descripcion
 
-empleo_ciiu_pd_merged = pd.merge(empleo_ciiu_pd, ciiu_nivel_1, left_on='ciiu4_1', right_on='codigo', how='left')
+empleo_ciiu_pd_merged = pd.merge(empleo_ciiu_pd, ciiu_nivel_1, 
+                                 left_on='ciiu4_1', 
+                                 right_on='codigo', 
+                                 how='left')
+
+empleo_ciiu_con_descripcion = empleo_ciiu_pd_merged[['ciiu4_1', 'descripcion', 'empleos', 'porcentaje']]
+
+# Exportar a un csv
+
+empleo_ciiu_con_descripcion.to_csv('output/empleo_ciiu_1.csv', index=False)
+
+# Extraer los 5 CIIUs mas grandes del mes-año mas reciente
+
+top_5_ciiu_1 = empleo_ciiu_pd_merged.head(5)['ciiu4_1'].tolist()
 
 # Análisis exploratorio de datos ---------------------------------------------------------------------------------------------
 
