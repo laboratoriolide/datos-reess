@@ -166,6 +166,19 @@ empleo_provincia_ciiu_pd['provincia'] = empleo_provincia_ciiu_pd.loc[:,'provinci
 
 empleo_provincia_ciiu_pd = empleo_provincia_ciiu_pd[['fecha', 'provincia', 'ciiu4_1', 'count',]]
 
+# Agrupar a nivel nacional por mes-año y CIIU, cambiar a formato wide (reshape)
+
+empleo_provincia_ciiu_pd = (empleo_provincia_ciiu_pd
+                            .groupby(['fecha', 'ciiu4_1'])
+                            .sum('count')
+                            .sort_values(['fecha', 'ciiu4_1'])
+                            .reset_index()
+                            .pivot(index='fecha', columns='ciiu4_1', values='count'))
+
+# Exportar a csv 
+
+empleo_provincia_ciiu_pd.to_csv('output/empleo_nacional_por_ciiu.csv')
+
 # Visualización de datos ---------------------------------------------------------------------------------------------
 
 # Visualizacion simple del trabajo por cada CIIU, para todas las provincias

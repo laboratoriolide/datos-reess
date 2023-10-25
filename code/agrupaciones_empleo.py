@@ -130,6 +130,18 @@ empleo_provincia = reess_agrupado.collect()
 
 empleo_provincia_pd = empleo_provincia.to_pandas()
 
+# Serie de tiempo nacional
+
+empleo_nacional = (reess_agrupado
+                    .group_by(['ano', 'mes'])
+                    .agg(pl.sum('count').alias('empleos'))
+                    .sort(['ano', 'mes']))
+
+# Ejecutar query y exportar a csv
+
+empleo_nacional_pd = empleo_nacional.collect().to_pandas().to_csv('output/empleo_nacional.csv', index=False)
+
+
 # Agrupacion por CIIU del periodo mas reciente ---------------------------------------------------------------------
 
 # Listar los nombres de todos los archivos en el directorio de datos
